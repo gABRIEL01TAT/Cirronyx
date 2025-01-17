@@ -1,0 +1,21 @@
+# Node.js Project Requirements
+
+# Express framework for building web applications
+express@^4.17.1
+
+# MySQL driver for Node.js
+mysql@^2.18.1
+# or if you prefer mysql2
+# mysql2@^2.3.3
+
+# Middleware for session management
+express-session@^1.17.1
+
+# Password hashing library
+bcrypt@^5.0.1
+
+# Environment variable management
+dotenv@^10.0.0
+
+# Optional: CORS middleware if needed
+cors@^2.8.5

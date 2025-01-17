@@ -1,0 +1,1 @@
+const hashedPassword = bcrypt.hashSync('your_password_here', 10);
