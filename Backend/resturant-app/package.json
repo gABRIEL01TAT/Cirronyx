@@ -1,0 +1,20 @@
+{
+    "name": "restaurant-app",
+    "version": "1.0.0",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/app.js"
+    },
+    "dependencies": {
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "helmet": "^4.6.0",
+        "joi": "^17.4.0",
+        "jsonwebtoken": "^8.5.1",
+        "mysql2": "^2.2.5",
+        "redis": "^4.7.0",
+        "sequelize": "^6.6.5",
+        "winston": "^3.3.3"
+    }
+}

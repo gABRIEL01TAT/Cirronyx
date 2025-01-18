@@ -6,6 +6,7 @@ const session = require('express-session');
 const helmet = require('helmet');
 const cors = require('cors');
 require('dotenv').config();
+const path = require('path'); // Import path module
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,6 +23,9 @@ app.use(session({
     cookie: { maxAge: 10 * 60 * 60 * 1000 } // 10 hours
 }));
 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 // MySQL Connection
 const db = mysql.createConnection({
     host: 'localhost',
@@ -33,6 +37,11 @@ const db = mysql.createConnection({
 db.connect(err => {
     if (err) throw err;
     console.log('MySQL Connected...');
+});
+
+// Serve the index.html file
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Admin Login
@@ -60,7 +69,7 @@ app.post('/create-user', (req, res) => {
 
     db.query('INSERT INTO users (username, password) VALUES (?, ?)', [username, hashedPassword], (err, results) => {
         if (err) return res.status(500).send('Server error');
-        res.send('User created successfully');
+        res.send('User  created successfully');
     });
 });
 
